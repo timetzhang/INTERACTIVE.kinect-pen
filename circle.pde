@@ -4,7 +4,7 @@ class Particle {
   PVector acc;
   color fillColor;
   float radius = 12;
-  float lifespan = 255;
+  float lifespan = 150;
 
   Particle(PVector l) {
     loc = l.get();
@@ -14,7 +14,7 @@ class Particle {
   }
 
   void update() {
-    lifespan-=2;
+    lifespan-=1.5;
     vel = new PVector(random(-2, 2), random(-2, 2), 0);
     vel.add(acc);
     loc.add(vel);
@@ -26,7 +26,7 @@ class Particle {
     println(loc.z);
     for (int i=40; i>10; i--) {
       fill(fillColor, lifespan-i*5);
-      ellipse(loc.x, loc.y, loc.z*2+(i-10), loc.z*2+(i-10));
+      ellipse(loc.x, loc.y, radius+(i-10), radius+(i-10));
     }
 
     //fill(fillColor, lifespan);
